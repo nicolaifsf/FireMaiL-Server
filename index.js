@@ -55,7 +55,7 @@ SummaryTool.summarize(subject,body,function(err,summary){
 
 });
 
-disptatcher.onPost("/api/v1/shorten", function(req,res){
+dispatcher.onPost("/api/v1/shorten", function(req,res){
 
 	console.log("here*********************************************************************************");
 SummaryTool.summarize(subject,body,function(err,summary){
