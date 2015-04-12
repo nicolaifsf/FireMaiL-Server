@@ -317,6 +317,7 @@ dispatcher.onGet("/api/v1/login", function(req, res) {
 	console.log("success");
 	userID = req.userID;
 	authToken = req.authToken;
+	console.log(authToken);
 	var clientSecret = wo7c7Ap0v5AcGcuN9WvL8ODI;
 
 	res.end('gotcha');
