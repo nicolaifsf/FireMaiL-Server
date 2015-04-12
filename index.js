@@ -27,12 +27,24 @@ dispatcher.onGet("/page1", function(req, res) {
     res.end('Page One');
 });    
 
+
+//this deals with registration
 dispatcher.onGet("/api/v1/shorten", function(req,res){
 	console.log("sweeeiggg baby sweiggg");
 	console.log(req.params);
 	console.log(req.params.title);
+	//HERE I GOTTA CHECK WITH IVEN TO DO REGISTRATION AND SHIT
+	//i needda query database roight?;
 	res.end('login');
 
+})
+
+//deals with summary
+dispatcher.onGet("/api/v1/shorten", function(req,res){
+	console.log("sumarize mah swag");
+	console.log(req.params);
+	console.log(req.params.title);
+	res.end('summarized');
 })
 //A sample POST request
 dispatcher.onPost("/post1", function(req, res) {
