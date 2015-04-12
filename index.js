@@ -18,7 +18,7 @@ function handleRequest(request, response){
     try{
         dispatcher.dispatch(request, response);
     }catch(err){
-        console.log("failure");
+        // console.log("failure");
         console.log(err); 
     }
 }
@@ -47,12 +47,13 @@ SummaryTool.summarize(subject,body,function(err,summary){
 
 	console.log("hit");
 	console.log(summary);
-	// res.end(summary);
+	res.end(summary);
+	
 });
 
 	console.log("hereee");
 
-	res.end(summary);
+	// res.end(summary);
 
 });
 
