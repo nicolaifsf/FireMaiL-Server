@@ -40,7 +40,8 @@ dispatcher.onGet("/api/v1/shorten", function(req,res){
 	console.log(req.params.title);
 	//HERE I GOTTA CHECK WITH IVEN TO DO REGISTRATION AND SHIT
 	//i needda query database roight?;
-
+var subject = req.params.title;
+var body = req.params.body;
 SummaryTool.summarize(subject,body,function(err,summary){
 	if(err) {console.log("something wrong");}
 
