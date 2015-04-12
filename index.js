@@ -1,7 +1,8 @@
 var SummaryTool = require('node-summary');
 var dispatcher = require('httpdispatcher');
 var express = require('express');
-var _ = require('loadash-node/underscore');
+var _ = require('lodash-node');
+var Tokenizer = require('sentence-tokenizer');
 
 var app = express();
 var http = require('http');
@@ -71,8 +72,6 @@ server.listen(PORT, function(){
 //-------------------------------------------------SUMMARIZER STARTS HERE-----------------------------------------
 
 
-var _ = require('lodash-node/underscore');
-var Tokenizer = require('sentence-tokenizer');
 
 function splitContentToSentences(content, callback) {
 	if(content.indexOf('.') === -1) {
