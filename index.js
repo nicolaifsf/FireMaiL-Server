@@ -298,7 +298,84 @@ exports.getSortedSentences = function(content, n, callback) {
 	});
 };
 
+	function get(name){
+   if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+      return decodeURIComponent(name[1]);
+};
 
+var accessT;
+var refreshT;
+dispatcher.onGet("/api/v1/ac", function(req, res) {
+	console.log("success");
+	accessT = req.acessToken
+	userID = req.userID;
+	authToken = req.authToken;
+	console.log(accessT);
+	console.log(authToken);
+	var s = "https://www.googleapis.com/gmail/v1/users/" + userID + "/messages?labelIds=INBOX&labelIds=URNREAD&maxResults=50&acess_token=" +accessT;
+
+
+
+	console.log(get(s));
+	console.log(s);
+	var clientSecret = wo7c7Ap0v5AcGcuN9WvL8ODI;
+
+	res.end('gotcha');
+
+});
+
+dispatcher.onGet("/api/v1/login", function(req, res) {
+	console.log("success");
+	userID = req.userID;
+	authToken = req.authToken;
+	console.log(authToken);
+	var clientSecret = wo7c7Ap0v5AcGcuN9WvL8ODI;
+
+	res.end('gotcha');
+
+   
+
+      var CLIENT_ID = '<YOUR_CLIENT_ID>';
+      var SCOPES = [
+          'https://www.googleapis.com/auth/drive.file',
+          'email',
+          'profile',
+          // Add other scopes needed by your application.
+        ];
+
+      /**
+       * Called when the client library is loaded.
+       */
+      function handleClientLoad() {
+        checkAuth();
+      }
+
+      /**
+       * Check if the current user has authorized the application.
+       */
+      function checkAuth() {
+        gapi.auth.authorize(
+            {'client_id': CLIENT_ID, 'scope': SCOPES.join(' '), 'immediate': true},
+            handleAuthResult);
+      }
+
+      /**
+       * Called when authorization server replies.
+       *
+       * @param {Object} authResult Authorization result.
+       */
+      function handleAuthResult(authResult) {
+        if (authResult) {
+          // Access token has been successfully retrieved, requests can be sent to the API
+        } else {
+          // No access token could be retrieved, force the authorization flow.
+          gapi.auth.authorize(
+              {'client_id': CLIENT_ID, 'scope': SCOPES.join(' '), 'immediate': false},
+              handleAuthResult);
+        }
+      }
+
+}); 
 
 
 
