@@ -1,6 +1,8 @@
 var SummaryTool = require('node-summary');
 var dispatcher = require('httpdispatcher');
 var express = require('express');
+var _ = require('loadash-node/underscore');
+
 var app = express();
 var http = require('http');
 
