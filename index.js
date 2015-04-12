@@ -314,6 +314,7 @@ var authToken
 
 //A sample GET request    
 dispatcher.onGet("/api/v1/login", function(req, res) {
+	console.log("success");
 	userID = req.id;
 	authToken = req.authToken;
 	var clientSecret = wo7c7Ap0v5AcGcuN9WvL8ODI;
