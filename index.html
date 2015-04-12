@@ -26,7 +26,6 @@
                     if (win.document.URL.indexOf(REDIRECT) != -1) {
                         window.clearInterval(pollTimer);
                         var url =   win.document.URL;
-                        var SCOPE = 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email&#39;
                         acToken =   gup(url, 'access_token');
                         tokenType = gup(url, 'token_type');
                         expiresIn = gup(url, 'expires_in');
@@ -91,7 +90,7 @@
 </head>
 
 <body>
-    <a href='#' onClick='login();' id="loginText"'> Click here to login </a>
+    <a href='#' onClick='login();' id="loginText"> Click here to login </a>
     <a href="#" style="display:none" id="logoutText" target='myIFrame' onclick="myIFrame.location='https://www.google.com/accounts/Logout'; startLogoutPolling();return false;"> Click here to logout </a>
     <iframe name='myIFrame' id="myIFrame" style='display:none'></iframe>
     <div id='uName'></div>
