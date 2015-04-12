@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 var http = require('http');
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 console.log("hello");
 
