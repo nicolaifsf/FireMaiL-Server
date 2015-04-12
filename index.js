@@ -41,19 +41,19 @@ dispatcher.onGet("/api/v1/shorten", function(req,res){
 	//HERE I GOTTA CHECK WITH IVEN TO DO REGISTRATION AND SHIT
 	//i needda query database roight?;
 
-var summary = SummaryTool.summarize(subject,body,function(err,summary){
+SummaryTool.summarize(subject,body,function(err,summary){
 	if(err) {console.log("something wrong");}
 
 	console.log("hit");
 	console.log(summary);
-	res.end(summary);
+	// res.end(summary);
 });
 
 	console.log("hereee");
 
 	res.end(summary);
 
-})
+});
 
 disptatcher.onPost("/api/v1/shorten", function(req,res){
 
